@@ -1,0 +1,27 @@
+{
+   "configuration":
+   {
+      "appiumHost":"127.0.0.1",
+      "appiumPort":"4723"
+   },
+   "loginUserFullAccess":
+   {
+         "hostName":"http://atishay.vortex.xmatters.com",
+         "companyName":"atishay",
+         "userName":"full",
+         "password":"test",
+      },
+   "loginUser":
+   {
+         "hostName":"http://atishay.vortex.xmatters.com",
+         "companyName":"atishay",
+         "userName":"atishay",
+         "password":"atishay",
+      }
+      "testcase1":
+      {
+      	"Expected_data":"Contact Us",
+		"twitter_Expected":"Videos",
+		"Presentations_Expected":"Presentations"
+      }
+}

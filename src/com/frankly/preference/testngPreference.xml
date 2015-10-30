@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="franklyMe App Test Automation"> 
+ 
+ <test name="franklymeTest">
+    <classes>
+		<!-- <class name="com.frankly.test.franklyMeapp"/> 
+     	<class name="com.frankly.test.DubADialogueVerify"/>
+     	<class name="com.frankly.test.VerifyDiscoverPage"/>
+     	<class name="com.frankly.test.VerifyMyAccount"/>
+     	<class name="com.frankly.test.VerifyCreatedCategory"/> -->
+     	<class name="com.frankly.test.VerifyFeedPage"/>
+     	
+     	
+     	
+     	
+      </classes>
+  </test>
+  
+</suite>
