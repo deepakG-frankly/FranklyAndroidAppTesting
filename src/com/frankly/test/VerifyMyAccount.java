@@ -21,11 +21,22 @@ public class VerifyMyAccount {
 		System.out.println("Initinilization of driver and property file");
 		myaccount.initilize();
 	}
+	// Varify main Screen and navigate to login page 
+	@Test(enabled = true, priority = 1)
+	public void VerifyMainScreen(){
+		myaccount.MainScreen("SkipBtnID",
+				"MainScreenHeading_ID",
+				"PauseIcon_ID",
+				"SmashA_Scene_Btn_Xpath",
+				"HaveA_Account_ID"
+				);
+	}
+	
 	@Test(enabled = true,priority = 2)
 	public void signInandContinue() throws InterruptedException{
 		myaccount.signIn("GetStarted_btn_ID","Login_Btn_Xpath","Email_Text_Field_Btn_ID","Login_Username","Login_Nxt_Btn_ID","Pass_Text_Field_Btn_ID","Login_Password");	
 	}
-	@Test(enabled = true,priority = 3)
+	/*@Test(enabled = true,priority = 3)
 	public void NavigateToMyAccount(){
 		myaccount.clickOnMyAccountAndValidate("My_Profile_ID",
 				"My_profile_UserName_Xpath",
@@ -45,7 +56,7 @@ public class VerifyMyAccount {
 				"Login_Btn_Xpath",
 				"bottom"
 				);
-	}
+	}*/
 	@AfterClass
 	public void closingtheserver(){
 		myaccount.closeappium();

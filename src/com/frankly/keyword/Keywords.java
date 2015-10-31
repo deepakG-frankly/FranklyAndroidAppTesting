@@ -338,21 +338,20 @@ return false;
 	 * @param keyID - Element ID
 	 */
 	public boolean verifyElementNotDisplayedByID(String elementID) {
-		boolean TRUE=true;
-		boolean FALSE=false;
+		
 		System.out.println("Verifying if element is not displayed");
 		try {
 			if (!(driver.findElement(By.id(OR.getProperty(elementID))).isDisplayed())) {
 				System.out.println("Element is not displayed");
-				return TRUE;
+				return true;
 			} else {
 				System.out.println("Element is displayed");
-				return FALSE;
+				return false;
 			}
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 		}
-		return TRUE;
+		return true;
 	}
 	/**
 	 * @description- Method is saving current date into global var

@@ -3,6 +3,7 @@ package com.frankly.page;
 import java.io.IOException;
 import org.apache.commons.exec.ExecuteException;
 import org.json.JSONException;
+import org.junit.Assert;
 
 import com.frankly.keyword.Keywords;
 
@@ -18,11 +19,11 @@ public class MyAccount extends Keywords {
 		InitializePropertiesFile();
 	}
 	public void signIn(String GetStarted_btn_ID,String Login_Btn_Xpath,String Email_Text_Field_Btn_ID,String Login_Username,String Login_Nxt_Btn_ID,String Pass_Text_Field_Btn_ID,String Login_Password) throws InterruptedException{
-		timeOut();
+		/*timeOut();
 		clickID(GetStarted_btn_ID);
 		timeOut();
 		clickXPath(Login_Btn_Xpath);
-		timeOut();
+		timeOut();*/
 		writeTextByID(Email_Text_Field_Btn_ID,Login_Username);
 		timeOut();
 		clickID(Login_Nxt_Btn_ID);
@@ -75,5 +76,22 @@ public class MyAccount extends Keywords {
 		timeOut();
 		elementisvisibleByXpath(Login_Btn_Xpath);	
 	}
-	
+	public void MainScreen(String SkipBtnID,
+			String MainScreenHeading_ID,
+			String PauseIcon_ID,
+			String SmashA_Scene_Btn_Xpath,
+			String HaveA_Account_ID){
+		timeOut();
+		Assert.assertTrue(visibleElementByID(SkipBtnID));
+		timeOut();
+		Assert.assertTrue(visibleElementByID(MainScreenHeading_ID));
+		timeOut();
+		/*Assert.assertTrue(verifyElementNotDisplayedByID(PauseIcon_ID));
+		timeOut();*/
+		/*Assert.assertTrue(visibleElementByID(SmashA_Scene_Btn_Xpath));
+		timeOut();*/
+		Assert.assertTrue(visibleElementByID(HaveA_Account_ID));
+		timeOut();
+		clickID(HaveA_Account_ID);
+	}
 }
