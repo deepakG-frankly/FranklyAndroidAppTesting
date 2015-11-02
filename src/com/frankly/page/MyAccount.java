@@ -18,12 +18,8 @@ public class MyAccount extends Keywords {
 	public void initilize() throws IOException, JSONException{
 		InitializePropertiesFile();
 	}
-	public void signIn(String GetStarted_btn_ID,String Login_Btn_Xpath,String Email_Text_Field_Btn_ID,String Login_Username,String Login_Nxt_Btn_ID,String Pass_Text_Field_Btn_ID,String Login_Password) throws InterruptedException{
-		/*timeOut();
-		clickID(GetStarted_btn_ID);
-		timeOut();
-		clickXPath(Login_Btn_Xpath);
-		timeOut();*/
+	public void signIn(String Email_Text_Field_Btn_ID,String Login_Username,String Login_Nxt_Btn_ID,String Pass_Text_Field_Btn_ID,String Login_Password) throws InterruptedException{
+
 		writeTextByID(Email_Text_Field_Btn_ID,Login_Username);
 		timeOut();
 		clickID(Login_Nxt_Btn_ID);
@@ -60,8 +56,8 @@ public class MyAccount extends Keywords {
 			String Account_Tab_Xpath,
 			String LogOut_Tab_Xpath,
 			String Alert_PopUp_Btn_ID,
-			String Login_Btn_Xpath,
-			String bottom
+			String bottom,
+			String HaveA_Account_ID
 			){
 		timeOut();
 		clickID(Setting_Btn_ID);
@@ -74,22 +70,20 @@ public class MyAccount extends Keywords {
 		timeOut();
 		clickID(Alert_PopUp_Btn_ID);
 		timeOut();
-		elementisvisibleByXpath(Login_Btn_Xpath);	
+		Assert.assertTrue(visibleElementByID(HaveA_Account_ID));
 	}
 	public void MainScreen(String SkipBtnID,
 			String MainScreenHeading_ID,
 			String PauseIcon_ID,
-			String SmashA_Scene_Btn_Xpath,
+			String SmashA_Scene_Btn_ID,
 			String HaveA_Account_ID){
 		timeOut();
 		Assert.assertTrue(visibleElementByID(SkipBtnID));
 		timeOut();
 		Assert.assertTrue(visibleElementByID(MainScreenHeading_ID));
 		timeOut();
-		/*Assert.assertTrue(verifyElementNotDisplayedByID(PauseIcon_ID));
-		timeOut();*/
-		/*Assert.assertTrue(visibleElementByID(SmashA_Scene_Btn_Xpath));
-		timeOut();*/
+		Assert.assertTrue(visibleElementByID(SmashA_Scene_Btn_ID));
+		timeOut();
 		Assert.assertTrue(visibleElementByID(HaveA_Account_ID));
 		timeOut();
 		clickID(HaveA_Account_ID);

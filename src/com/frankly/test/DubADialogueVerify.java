@@ -27,15 +27,44 @@ public class DubADialogueVerify {
 		dubAdialogue.initilize();
 	}
 	/**
+	 * @description- Verify main screen and go to login page
+	 */
+	@Test(enabled = true, priority = 2)
+	public void VerifyMainScreen(){
+		dubAdialogue.MainScreen("SkipBtnID",
+				"MainScreenHeading_ID",
+				"PauseIcon_ID",
+				"SmashA_Scene_Btn_ID",
+				"HaveA_Account_ID"
+				);
+	}
+	/**
 	 * @description- Sign In to the application using existence user name and password
 	 */
-	@Test(enabled = true,priority = 2)
-	public void signInandContinue() throws InterruptedException{
-		dubAdialogue.signIn("GetStarted_btn_ID","Login_Btn_Xpath","Email_Text_Field_Btn_ID","Login_Username","Login_Nxt_Btn_ID","Pass_Text_Field_Btn_ID","Login_Password");	
-	}
 	@Test(enabled = true,priority = 3)
+	public void signInandContinue() throws InterruptedException{
+		dubAdialogue.signIn("Email_Text_Field_Btn_ID",
+				"Login_Username",
+				"Login_Nxt_Btn_ID",
+				"Pass_Text_Field_Btn_ID",
+				"Login_Password");	
+	}
+	@Test(enabled = true,priority = 4)
 	public void DubADialogue() throws InterruptedException{
-		dubAdialogue.ClickOnDubADialogue("DubA_Dialogue_xpath","DubA_Dialogue_PageHeading_Xpath","DubA_Dialogue_upload_Btn_xpath","DubA_Dialogue_MyUpload_Xpath","DubA_Dialogue_ScrollTo_Text","DubA_Dialogue_NarendraModi_Xpath");
+		dubAdialogue.ClickOnDubADialogue("DubA_Dialogue_xpath",
+				"DubA_Dialogue_PageHeading_Xpath",
+				"Poltics_Dub_Xpath",
+				"Poltics_firstSong_dub_ID",
+				"DubRecordingBtn_Screen_Xpath",
+				"DubNxt_Btn_ID",
+				"video_heading",
+				"DubDone_Btn_ID",
+				"Add_Title_ID",
+				"Upload_video_Btn_ID");
+		dubAdialogue.verifyuploadedvideo("Account_Btn_ID",
+				"Uploaded_Video_section_ID",
+				"Video_Heading_ID",
+				"video_heading");
 	}
 	/**
 	 * @description- Quit the driver

@@ -31,7 +31,7 @@ public class Keywords {
 	public static Properties OR=null;
 	public static SoftAssert softAssert=new SoftAssert();
 	private AndroidDriver driver;
-	public static String appLocation = "C:\\Users\\Deepak\\Documents\\Frankly_Appium_Test\\franklymeTest\\frankly-android-release.apk";
+	public static String appLocation = "C:\\Users\\Deepak\\Documents\\Frankly_Appium_Test\\franklymeTest\\frankly-android-release_02_11_15.apk";
 	public static String deviceName = "ZX1B33WKR7";
 	public JSONObject userdata;
 	public static Logger APP_LOGS = Logger.getLogger(Keywords.class);;
@@ -56,7 +56,7 @@ public class Keywords {
 	public void launchappium() throws ExecuteException, IOException, InterruptedException{
 		System.out.println("Launching Application...");
 		APP_LOGS.debug("Initilize config file to read data");
-		File file =new File(System.getProperty("user.dir")+"\\frankly-android-debug_28_10.apk");
+		File file =new File(System.getProperty("user.dir")+"\\frankly-android-release_02_11_15.apk");
 		DesiredCapabilities capabilities= new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("deviceName", deviceName);
@@ -72,11 +72,10 @@ public class Keywords {
 	 */
 	public void quitDriver(){
 		 try{
-			 	System.out.println("Quitting the driver");
 				driver.quit();
 		 }
 		 catch(Exception e){
-		  System.out.println("exception:"+e.getMessage());
+		 Assert.fail("exception:"+e.getMessage());
 		 }
 	}
 	/**
@@ -289,9 +288,7 @@ public class Keywords {
 				 */
 				public void VerifyRandomHeadingNotVisibleByID(String textID, String expected_text){
 					try{
-						System.out.println(expected_text);
 						String actual_text=driver.findElement(By.id(OR.getProperty(textID))).getText();
-						System.out.println(actual_text);
 						if(!actual_text.contains(expected_text)){	
 						}
 						else{
@@ -321,14 +318,26 @@ public class Keywords {
 	 * @param keyID - Element ID
 	 */
 public boolean visibleElementByID(String elementID){
-	System.out.println(OR.get(elementID));
 try{
 	if(driver.findElement(By.id(OR.getProperty(elementID)))!=null){
-		System.out.println("********looking for element******");
 	 return true;
 	}
 }catch(Exception e){
 	Assert.fail(e.getMessage());
+}
+return false;
+}
+/**
+ * @description- Element is present by Xpath and return boolean value
+ * @param keyID - Element Xpath
+ */
+public boolean visibleElementByXpath(String elementXpath){
+try{
+if(driver.findElement(By.id(OR.getProperty(elementXpath)))!=null){
+ return true;
+}
+}catch(Exception e){
+Assert.fail(e.getMessage());
 }
 return false;
 }
@@ -338,14 +347,10 @@ return false;
 	 * @param keyID - Element ID
 	 */
 	public boolean verifyElementNotDisplayedByID(String elementID) {
-		
-		System.out.println("Verifying if element is not displayed");
 		try {
 			if (!(driver.findElement(By.id(OR.getProperty(elementID))).isDisplayed())) {
-				System.out.println("Element is not displayed");
 				return true;
 			} else {
-				System.out.println("Element is displayed");
 				return false;
 			}
 		} catch (Exception e) {
@@ -373,9 +378,7 @@ return false;
 	 */
 	public void VerifyStoredGlobalVariableByXpath(String elelmentID,String Expected_Value ) {
 	try{
-		System.out.println("Getting the exact name of frankster of the day");
 		Actual_Value = driver.findElement(By.xpath(OR.getProperty(elelmentID))).getText();
-		System.out.println(Actual_Value);
 		if(Actual_Value.contains(Expected_Value)){
 		}else{
 			Assert.fail("Not able to match text");
@@ -419,18 +422,15 @@ return false;
 	 * @return - Actual Result
 	 */
 	public boolean elementisvisibleByXpath(String elementXpath){
-		boolean TRUE = true;
-		boolean FALSE=false;
-		System.out.println(OR.getProperty(elementXpath));
 		try{
 			timeOut();
 			if(driver.findElement(By.xpath(OR.getProperty(elementXpath)))!=null){
-				 return TRUE;
+				 return true;
 			}
 		}catch(Exception e){
 			Assert.fail(e.getMessage());
 		}
-		return FALSE;
+		return false;
 	}
 	/**
 	 * @description- upload a video using ID
@@ -451,8 +451,6 @@ return false;
 	public void uploadAVideoByXpath(String KeyXpath,String filePath){
 		try{
 			WebElement element= driver.findElement(By.xpath(OR.getProperty(KeyXpath)));
-			System.out.println(element);
-			System.out.println(OR.getProperty(filePath));
 			element.sendKeys(OR.getProperty(filePath));
 		}catch (Exception e){
 			Assert.fail(e.getMessage());
