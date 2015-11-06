@@ -5,13 +5,17 @@ import org.json.JSONException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import com.frankly.page.MyAccount;
 
-public class VerifyMyAccount {
+import com.frankly.keyword.Keywords;
+import com.frankly.page.MyAccount;
+import com.frankly.page.recordAVlog;
+
+public class VerifyMyAccount extends Keywords {
 	MyAccount myaccount = new MyAccount();
 	@BeforeClass
 	public void startappiumserver() throws  IOException, InterruptedException
 	{
+		APP_LOGS.info("Launching the application in device");
 		myaccount.appiumlaunch();
 	}
 	// Initialize the OR and Config property

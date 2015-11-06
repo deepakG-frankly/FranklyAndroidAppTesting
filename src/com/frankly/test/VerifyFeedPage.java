@@ -6,14 +6,15 @@ import org.json.JSONException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.frankly.keyword.Keywords;
 import com.frankly.page.Feed_Page;
 
-public class VerifyFeedPage {
+public class VerifyFeedPage extends Keywords {
 	Feed_Page feedpage = new Feed_Page();
 	@BeforeClass
 	public void startappiumserver() throws  IOException, InterruptedException
 	{
-//		APP_LOGS.info("Launch akp in device");
 		feedpage.appiumlaunch();
 	}
 	// Initialize the OR and Config property

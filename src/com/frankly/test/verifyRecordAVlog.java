@@ -11,7 +11,6 @@ import com.frankly.keyword.Keywords;
 import com.frankly.page.recordAVlog;
 
 public class verifyRecordAVlog extends Keywords { 
-//	public static Logger APP_LOGS = Logger.getLogger(franklyMeapp.class);
 	recordAVlog franklymetest=new recordAVlog();
 	/**
 	 * @description- Launch the application in device
@@ -19,6 +18,7 @@ public class verifyRecordAVlog extends Keywords {
 	@BeforeClass
 	public void startappiumserver() throws  IOException, InterruptedException
 	{
+		APP_LOGS.info("Launching the application in device");
 		franklymetest.appiumlaunch();
 	}
 	/**
@@ -26,6 +26,7 @@ public class verifyRecordAVlog extends Keywords {
 	 */
 	@Test(enabled = true, priority = 1)
 	public void Logging_In() throws InterruptedException, IOException, JSONException{	
+		APP_LOGS.info("Initilize the OR and Config property file");
 		franklymetest.initilize();
 	}
 	/**
@@ -33,6 +34,7 @@ public class verifyRecordAVlog extends Keywords {
 	 */
 	@Test(enabled = true,priority = 2)
 	public void signInandContinue() throws InterruptedException{
+		APP_LOGS.info("login with existing user name and password");
 		franklymetest.signIn(
 				"GetStarted_btn_ID",
 				"Login_Btn_Xpath",

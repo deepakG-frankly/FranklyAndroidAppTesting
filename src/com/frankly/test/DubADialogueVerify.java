@@ -6,9 +6,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.frankly.keyword.Keywords;
 import com.frankly.page.DubADialogue;
 
-public class DubADialogueVerify {
+public class DubADialogueVerify extends Keywords {
 	DubADialogue dubAdialogue = new DubADialogue();
 	/**
 	 * @description- Launch the application in device
@@ -16,6 +17,7 @@ public class DubADialogueVerify {
 	@BeforeClass
 	public void startappiumserver() throws  IOException, InterruptedException
 	{
+		APP_LOGS.info("launching the application in device");
 		dubAdialogue.appiumlaunch();
 	}
 	/**
@@ -23,7 +25,7 @@ public class DubADialogueVerify {
 	 */
 	@Test(enabled = true, priority = 1)
 	public void Logging_In() throws InterruptedException, IOException, JSONException{	
-		System.out.println("Initinilization of driver and property file");
+		APP_LOGS.info("initilizing the config and OR property file");
 		dubAdialogue.initilize();
 	}
 	/**
@@ -31,6 +33,7 @@ public class DubADialogueVerify {
 	 */
 	@Test(enabled = true, priority = 2)
 	public void VerifyMainScreen(){
+		APP_LOGS.info("Add onboarding process for login methods");
 		dubAdialogue.MainScreen("SkipBtnID",
 				"MainScreenHeading_ID",
 				"PauseIcon_ID",
@@ -43,6 +46,7 @@ public class DubADialogueVerify {
 	 */
 	@Test(enabled = true,priority = 3)
 	public void signInandContinue() throws InterruptedException{
+		APP_LOGS.info("Do login with existing user name and password");
 		dubAdialogue.signIn("Email_Text_Field_Btn_ID",
 				"Login_Username",
 				"Login_Nxt_Btn_ID",
@@ -51,6 +55,7 @@ public class DubADialogueVerify {
 	}
 	@Test(enabled = true,priority = 4)
 	public void DubADialogue() throws InterruptedException{
+		APP_LOGS.info("Dub a dialog and verify it on my account page");
 		dubAdialogue.ClickOnDubADialogue("DubA_Dialogue_xpath",
 				"DubA_Dialogue_PageHeading_Xpath",
 				"Poltics_Dub_Xpath",

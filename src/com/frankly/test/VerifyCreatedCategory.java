@@ -5,9 +5,11 @@ import org.json.JSONException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.frankly.keyword.Keywords;
 import com.frankly.page.CreateCategoryAndVerify;
 
-public class VerifyCreatedCategory {
+public class VerifyCreatedCategory extends Keywords {
 	CreateCategoryAndVerify verifycreatedcategory = new CreateCategoryAndVerify();
 	/**
 	 * @description- Launch the application in device
