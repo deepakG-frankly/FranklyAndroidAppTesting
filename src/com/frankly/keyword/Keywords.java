@@ -31,8 +31,8 @@ public class Keywords {
 	public static Properties OR=null;
 	public static SoftAssert softAssert=new SoftAssert();
 	private AndroidDriver driver;
-	public static String appLocation = "C:\\Users\\Deepak\\Documents\\Frankly_Appium_Test\\franklymeTest\\frankly-android-release_02_11_15.apk";
-	public static String deviceName = "ZX1B33WKR7";
+	public static String appLocation = "C:\\Users\\Deepak\\Documents\\Frankly_Appium_Test\\franklymeTest\\frankly-android-release.apk";
+	public static String deviceName = "ZX1G42CGLT";
 	public JSONObject userdata;
 	public static Logger APP_LOGS = Logger.getLogger(Keywords.class);;
 	
@@ -41,12 +41,13 @@ public class Keywords {
 	 * @param object - Optional variable
 	 */
 	public void InitializePropertiesFile() throws IOException, JSONException {
-				CONFIG=new Properties();
+			APP_LOGS.info("Initilize config file to read data");
+			CONFIG=new Properties();
 				OR= new Properties();
-				APP_LOGS.debug("Initilize config file to read data");
+				APP_LOGS.info("Initilize config file to read data");
 				FileInputStream fs=new FileInputStream(System.getProperty("user.dir")+"//src//com//frankly//config//config.properties");
 				CONFIG.load(fs);	
-				APP_LOGS.debug("Initilize OR file to read data");
+				APP_LOGS.info("Initilize OR file to read data");
 					 fs=new FileInputStream(System.getProperty("user.dir")+"//src//com//frankly//config//OR.properties");
 					OR.load(fs);
 	  }
@@ -54,9 +55,8 @@ public class Keywords {
 	 * @description- Method is launch the app in device
 	 */
 	public void launchappium() throws ExecuteException, IOException, InterruptedException{
-		System.out.println("Launching Application...");
-		APP_LOGS.debug("Initilize config file to read data");
-		File file =new File(System.getProperty("user.dir")+"\\frankly-android-release_02_11_15.apk");
+		APP_LOGS.info("Launching Application...");
+		File file =new File(System.getProperty("user.dir")+"\\frankly-android-debug.apk");
 		DesiredCapabilities capabilities= new DesiredCapabilities();
 		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 		capabilities.setCapability("deviceName", deviceName);

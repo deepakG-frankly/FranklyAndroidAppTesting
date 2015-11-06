@@ -6,4 +6,5 @@ public class Constants {
 	public static int TIME_OUT=10;
 	public static String bottom="R";
 	public static int videoplaytimes= 3;
+	public static int videouploadTimes = 50;
 }

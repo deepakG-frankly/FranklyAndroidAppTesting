@@ -12,7 +12,6 @@ public class VerifyMyAccount {
 	@BeforeClass
 	public void startappiumserver() throws  IOException, InterruptedException
 	{
-//		APP_LOGS.info("Launch akp in device");
 		myaccount.appiumlaunch();
 	}
 	// Initialize the OR and Config property
@@ -21,7 +20,7 @@ public class VerifyMyAccount {
 		System.out.println("Initinilization of driver and property file");
 		myaccount.initilize();
 	}
-	// Varify main Screen and navigate to login page 
+/*	// Varify main Screen and navigate to login page 
 	@Test(enabled = true, priority = 2)
 	public void VerifyMainScreen(){
 		myaccount.MainScreen("SkipBtnID",
@@ -30,18 +29,21 @@ public class VerifyMyAccount {
 				"SmashA_Scene_Btn_ID",
 				"HaveA_Account_ID"
 				);
-	}
+	}*/
 	
-	@Test(enabled = true,priority = 3)
+	@Test(enabled = true,priority = 2)
 	public void signInandContinue() throws InterruptedException{
 		myaccount.signIn(
+				"GetStarted_btn_ID",
+				"Login_Btn_Xpath",
 				"Email_Text_Field_Btn_ID",
 				"Login_Username",
 				"Login_Nxt_Btn_ID",
+				"videoIcon_ID",
 				"Pass_Text_Field_Btn_ID",
 				"Login_Password");	
 	}
-	@Test(enabled = true,priority = 4)
+	@Test(enabled = true,priority = 3)
 	public void NavigateToMyAccount(){
 		myaccount.clickOnMyAccountAndValidate("My_Profile_ID",
 				"My_profile_UserName_Xpath",
@@ -52,7 +54,7 @@ public class VerifyMyAccount {
 				"Ask_Followers_Btn_ID",
 				"Invite_Friend_Btn_ID");
 	}
-	@Test(enabled = true,priority = 5)
+	@Test(enabled = true,priority = 4)
 	public void logoutFunctionality(){
 		myaccount.VerifyLogOutFun("Setting_Btn_ID",
 				"Account_Tab_Xpath",

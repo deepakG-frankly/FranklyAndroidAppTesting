@@ -18,11 +18,24 @@ public class MyAccount extends Keywords {
 	public void initilize() throws IOException, JSONException{
 		InitializePropertiesFile();
 	}
-	public void signIn(String Email_Text_Field_Btn_ID,String Login_Username,String Login_Nxt_Btn_ID,String Pass_Text_Field_Btn_ID,String Login_Password) throws InterruptedException{
-
+	public void signIn(String GetStarted_btn_ID,
+			String Login_Btn_Xpath,
+			String Email_Text_Field_Btn_ID,
+			String Login_Username,
+			String Login_Nxt_Btn_ID,
+			String videoIcon_ID,
+			String Pass_Text_Field_Btn_ID,
+			String Login_Password) throws InterruptedException{
+		timeOut();
+		clickID(GetStarted_btn_ID);
+		timeOut();
+		clickXPath(Login_Btn_Xpath);
+		timeOut();
 		writeTextByID(Email_Text_Field_Btn_ID,Login_Username);
 		timeOut();
 		clickID(Login_Nxt_Btn_ID);
+		timeOut();
+		clickID(videoIcon_ID);
 		timeOut();
 		writeTextByID(Pass_Text_Field_Btn_ID,Login_Password);
 		timeOut();

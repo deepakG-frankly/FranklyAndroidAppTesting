@@ -4,12 +4,13 @@
  
  <test name="franklymeTest">
     <classes>
-		<!-- <class name="com.frankly.test.franklyMeapp"/> 
-     	<class name="com.frankly.test.VerifyDiscoverPage"/>
+		
+     	<!--<class name="com.frankly.test.VerifyDiscoverPage"/>
      	<class name="com.frankly.test.VerifyCreatedCategory"/>
      	<class name="com.frankly.test.VerifyFeedPage"/> 
-     	<class name="com.frankly.test.VerifyMyAccount"/>-->
      	<class name="com.frankly.test.DubADialogueVerify"/>	
+     	<class name="com.frankly.test.VerifyMyAccount"/>-->
+     	 <class name="com.frankly.test.verifyRecordAVlog"/> 
       </classes>
   </test>
   
